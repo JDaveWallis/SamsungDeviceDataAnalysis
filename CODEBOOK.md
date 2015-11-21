@@ -28,13 +28,13 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 For each record the following data is provided:
 ======================================
 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+* Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
      (Accelerometer data is presented in "standard gravity" units.
-- Triaxial Angular velocity from the gyroscope. 
+* Triaxial Angular velocity from the gyroscope. 
      (Gyroscope data is presented in units of "radians per second".
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
+* A 561-feature vector with time and frequency domain variables. 
+* Its activity label. 
+* An identifier of the subject who carried out the experiment.
 
 ###Notes on the original (raw) data 
 The raw data does include some null data, where measurements were not collected for some reason.  Those entries are not included in the calculation of averages for the different variables.
@@ -48,101 +48,101 @@ These are the steps followed to produce the final summarized tidy data file:
 3) The variables related to mean and standard deviation are identified by evaluating the raw variable names, and only selecting those names that contain the strings "mean()", "Mean()", or "std()".
 4) The subject, activity and selected mean/std variable data is then combined into a single data frame, where each record is a single observation for an activity performed by a subject.
 5) The raw variable column names are assigned more descriptive names, using the following mapping mechanism:
-	- X				translates to		XAxis
-	- Y				translates to		YAxis
-	- Z				translates to		ZAxis
-	- Body			translates to 		Body (duplicate occurrences of Body in a variable name are removed)
-	- Acc			translates to 		Accelerometer
-	- Gravity		translates to 		Gravity
-	- Gyro			translates to		Gyroscope
-	- Jerk			translates to		Jerk
-	- Mag			translates to		Magnitued
-	- t (at beginning of the raw variable name) translates to Time
-	- f (at beginning of the raw variable name) translates to Frequency
-	- mean/Mean		translates to		Mean
-	- std			translates to		Std
+* X			translates to		XAxis
+* Y			translates to		YAxis
+* Z			translates to		ZAxis
+* Body			translates to 		Body (duplicate occurrences of Body in a variable name are removed)
+* Acc			translates to 		Accelerometer
+* Gravity		translates to 		Gravity
+* Gyro			translates to		Gyroscope
+* Jerk			translates to		Jerk
+* Mag			translates to		Magnitued
+* t (at beginning of the raw variable name) translates to Time
+* f (at beginning of the raw variable name) translates to Frequency
+* mean/Mean		translates to		Mean
+* std			translates to		Std
 	
-	The descriptive column names are presented in Camel Case (Every word begins with an upper-case letter; non-beginning word letters are lower-case; no special characters in the descriptive name).
-	As an example:  The raw variable name "tBodyAccJerk-mean()-Z" translates to the descriptive name of "BodyAccelerometerJerkZAxisTimeMean".
+The descriptive column names are presented in Camel Case (Every word begins with an upper-case letter; non-beginning word letters are lower-case; no special characters in the descriptive name).
+
+As an example:  The raw variable name "tBodyAccJerk-mean()-Z" translates to the descriptive name of "BodyAccelerometerJerkZAxisTimeMean".
 
 ###Cleaning of the data
-The README.md file describes the "run_analysis.R" data consolidation/cleansing script in greater detail. [link to the readme document]()
+Click hear to see the [README.md](https://github.com/JDaveWallis/SamsungDeviceDataAnalysis/blob/master/README.md) file which describes the "run_analysis.R" data consolidation/cleansing script in greater detail.
 
 ##Description of the variables in the tidy_data.txt file
 General description of the file including:
- - The tidy_data.txt includes 180 rows (summary observations for 30 subjects, with 6 activities for each subject) and 69 columns (3 identifiers and 66 variables).  
+The tidy_data.txt includes 180 rows (summary observations for 30 subjects, with 6 activities for each subject) and 69 columns (3 identifiers and 66 variables).  
  
- - The first 3 columns identify each record:  
-  1. SubjectID identifies the subject number (between 1 and 30)							class="int"
-  2. ActivityID identifies the Activity number (between 1 and 6) 						class="int"
-  3. ActivityName displays the actual activity that corresponds to the ActivityID 		class="chr"
+The first 3 columns identify each record:  
+- SubjectID identifies the subject number (between 1 and 30)					class="int"
+- ActivityID identifies the Activity number (between 1 and 6) 					class="int"
+- ActivityName displays the actual activity that corresponds to the ActivityID 			class="chr"
  
- - The remaining 66 columns are the actual average values of the variables captured in the study for each observation (Subject/Activity):
-  4. BodyAccelerometerXAxisTimeMean					Average value of "standard gravity" units, 	class="num"
-  5. BodyAccelerometerYAxisTimeMean					Average value of "standard gravity" units, 	class="num"
-  6. BodyAccelerometerZAxisTimeMean					Average value of "standard gravity" units, 	class="num"
-  7. BodyAccelerometerXAxisTimeStd					Average value of "standard gravity" units, 	class="num"
-  8. BodyAccelerometerYAxisTimeStd					Average value of "standard gravity" units, 	class="num"
-  9. BodyAccelerometerZAxisTimeStd					Average value of "standard gravity" units, 	class="num"
- 10. GravityAccelerometerXAxisTimeMean				Average value of "standard gravity" units, 	class="num"
- 11. GravityAccelerometerYAxisTimeMean 				Average value of "standard gravity" units, 	class="num"
- 12. GravityAccelerometerZAxisTimeMean 				Average value of "standard gravity" units, 	class="num"
- 13. GravityAccelerometerXAxisTimeStd  				Average value of "standard gravity" units, 	class="num"
- 14. GravityAccelerometerYAxisTimeStd 				Average value of "standard gravity" units, 	class="num"
- 15. GravityAccelerometerZAxisTimeStd				Average value of "standard gravity" units, 	class="num"
- 16. BodyAccelerometerJerkXAxisTimeMean 			Average value of "standard gravity" units, 	class="num"
- 17. BodyAccelerometerJerkYAxisTimeMean				Average value of "standard gravity" units, 	class="num"
- 18. BodyAccelerometerJerkZAxisTimeMean				Average value of "standard gravity" units, 	class="num"
- 19. BodyAccelerometerJerkXAxisTimeStd				Average value of "standard gravity" units, 	class="num"
- 20. BodyAccelerometerJerkYAxisTimeStd				Average value of "standard gravity" units, 	class="num"
- 21. BodyAccelerometerJerkZAxisTimeStd				Average value of "standard gravity" units, 	class="num"
- 22. BodyGyroscopeXAxisTimeMean          			Average value of "radians per second", 		class="num"
- 23. BodyGyroscopeYAxisTimeMean         			Average value of "radians per second", 		class="num"
- 24. BodyGyroscopeZAxisTimeMean          			Average value of "radians per second", 		class="num"
- 25. BodyGyroscopeXAxisTimeStd           			Average value of "radians per second", 		class="num"
- 26. BodyGyroscopeYAxisTimeStd            			Average value of "radians per second", 		class="num"
- 27. BodyGyroscopeZAxisTimeStd            			Average value of "radians per second", 		class="num"
- 28. BodyGyroscopeJerkXAxisTimeMean        			Average value of "radians per second", 		class="num"
- 29. BodyGyroscopeJerkYAxisTimeMean         		Average value of "radians per second", 		class="num"
- 30. BodyGyroscopeJerkZAxisTimeMean         		Average value of "radians per second", 		class="num"
- 31. BodyGyroscopeJerkXAxisTimeStd          		Average value of "radians per second", 		class="num"
- 32. BodyGyroscopeJerkYAxisTimeStd          		Average value of "radians per second", 		class="num"
- 33. BodyGyroscopeJerkZAxisTimeStd          		Average value of "radians per second", 		class="num"
- 34. BodyAccelerometerMagnitudeTimeMean				Average value of "standard gravity" units, 	class="num"
- 35. BodyAccelerometerMagnitudeTimeStd				Average value of "standard gravity" units, 	class="num"
- 36. GravityAccelerometerMagnitudeTimeMean			Average value of "standard gravity" units, 	class="num"
- 37. GravityAccelerometerMagnitudeTimeStd			Average value of "standard gravity" units, 	class="num"
- 38. BodyAccelerometerJerkMagnitudeTimeMean 		Average value of "standard gravity" units, 	class="num"
- 39. BodyAccelerometerJerkMagnitudeTimeStd 			Average value of "standard gravity" units, 	class="num"
- 40. BodyGyroscopeMagnitudeTimeMean         		Average value of "radians per second", 		class="num"
- 41. BodyGyroscopeMagnitudeTimeStd          		Average value of "radians per second", 		class="num"
- 42. BodyGyroscopeJerkMagnitudeTimeMean     		Average value of "radians per second", 		class="num"
- 43. BodyGyroscopeJerkMagnitudeTimeStd      		Average value of "radians per second", 		class="num"
- 44. BodyAccelerometerXAxisFrequencyMean			Average value of "standard gravity" units, 	class="num"
- 45. BodyAccelerometerYAxisFrequencyMean			Average value of "standard gravity" units, 	class="num"
- 46. BodyAccelerometerZAxisFrequencyMean			Average value of "standard gravity" units, 	class="num"
- 47. BodyAccelerometerXAxisFrequencyStd				Average value of "standard gravity" units, 	class="num"
- 48. BodyAccelerometerYAxisFrequencyStd 			Average value of "standard gravity" units, 	class="num"
- 49. BodyAccelerometerZAxisFrequencyStd 			Average value of "standard gravity" units, 	class="num"
- 50. BodyAccelerometerJerkXAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
- 51. BodyAccelerometerJerkYAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
- 52. BodyAccelerometerJerkZAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
- 53. BodyAccelerometerJerkXAxisFrequencyStd 		Average value of "standard gravity" units, 	class="num"
- 54. BodyAccelerometerJerkYAxisFrequencyStd 		Average value of "standard gravity" units, 	class="num"
- 55. BodyAccelerometerJerkZAxisFrequencyStd 		Average value of "standard gravity" units, 	class="num"
- 56. BodyGyroscopeXAxisFrequencyMean     			Average value of "radians per second", 		class="num"
- 57. BodyGyroscopeYAxisFrequencyMean    			Average value of "radians per second", 		class="num"
- 58. BodyGyroscopeZAxisFrequencyMean    			Average value of "radians per second", 		class="num"
- 59. BodyGyroscopeXAxisFrequencyStd     			Average value of "radians per second", 		class="num"
- 60. BodyGyroscopeYAxisFrequencyStd     			Average value of "radians per second", 		class="num"
- 61. BodyGyroscopeZAxisFrequencyStd     			Average value of "radians per second", 		class="num"
- 62. BodyAccelerometerMagnitudeFrequencyMean		Average value of "standard gravity" units, 	class="num"
- 63. BodyAccelerometerMagnitudeFrequencyStd 		Average value of "standard gravity" units, 	class="num"
- 64. BodyAccelerometerJerkMagnitudeFrequencyMean  	Average value of "standard gravity" units, 	class="num"
- 65. BodyAccelerometerJerkMagnitudeFrequencyStd	  	Average value of "standard gravity" units, 	class="num"
- 66. BodyGyroscopeMagnitudeFrequencyMean  			Average value of "radians per second", 		class="num"
- 67. BodyGyroscopeMagnitudeFrequencyStd   			Average value of "radians per second", 		class="num"
- 68. BodyGyroscopeJerkMagnitudeFrequencyMean		Average value of "radians per second", 		class="num"
- 69. BodyGyroscopeJerkMagnitudeFrequencyStd			Average value of "radians per second", 		class="num"
+The remaining 66 columns are the actual average values of the variables captured in the study for each observation (Subject/Activity):
+- BodyAccelerometerXAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerYAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerZAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerXAxisTimeStd			Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerYAxisTimeStd			Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerZAxisTimeStd			Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerXAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerYAxisTimeMean 		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerZAxisTimeMean 		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerXAxisTimeStd  		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerYAxisTimeStd 		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerZAxisTimeStd		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkXAxisTimeMean 		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkYAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkZAxisTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkXAxisTimeStd		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkYAxisTimeStd		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkZAxisTimeStd		Average value of "standard gravity" units, 	class="num"
+- BodyGyroscopeXAxisTimeMean          		Average value of "radians per second", 		class="num"
+- BodyGyroscopeYAxisTimeMean         		Average value of "radians per second", 		class="num"
+- BodyGyroscopeZAxisTimeMean          		Average value of "radians per second", 		class="num"
+- BodyGyroscopeXAxisTimeStd           		Average value of "radians per second", 		class="num"
+- BodyGyroscopeYAxisTimeStd            		Average value of "radians per second", 		class="num"
+- BodyGyroscopeZAxisTimeStd            		Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkXAxisTimeMean        	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkYAxisTimeMean         	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkZAxisTimeMean         	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkXAxisTimeStd          	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkYAxisTimeStd          	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkZAxisTimeStd          	Average value of "radians per second", 		class="num"
+- BodyAccelerometerMagnitudeTimeMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerMagnitudeTimeStd		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerMagnitudeTimeMean		Average value of "standard gravity" units, 	class="num"
+- GravityAccelerometerMagnitudeTimeStd		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkMagnitudeTimeMean 	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkMagnitudeTimeStd 	Average value of "standard gravity" units, 	class="num"
+- BodyGyroscopeMagnitudeTimeMean         	Average value of "radians per second", 		class="num"
+- BodyGyroscopeMagnitudeTimeStd          	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkMagnitudeTimeMean     	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkMagnitudeTimeStd      	Average value of "radians per second", 		class="num"
+- BodyAccelerometerXAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerYAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerZAxisFrequencyMean		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerXAxisFrequencyStd		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerYAxisFrequencyStd 		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerZAxisFrequencyStd 		Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkXAxisFrequencyMean	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkYAxisFrequencyMean	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkZAxisFrequencyMean	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkXAxisFrequencyStd 	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkYAxisFrequencyStd 	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkZAxisFrequencyStd 	Average value of "standard gravity" units, 	class="num"
+- BodyGyroscopeXAxisFrequencyMean     		Average value of "radians per second", 		class="num"
+- BodyGyroscopeYAxisFrequencyMean    		Average value of "radians per second", 		class="num"
+- BodyGyroscopeZAxisFrequencyMean    		Average value of "radians per second", 		class="num"
+- BodyGyroscopeXAxisFrequencyStd     		Average value of "radians per second", 		class="num"
+- BodyGyroscopeYAxisFrequencyStd     		Average value of "radians per second", 		class="num"
+- BodyGyroscopeZAxisFrequencyStd     		Average value of "radians per second", 		class="num"
+- BodyAccelerometerMagnitudeFrequencyMean	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerMagnitudeFrequencyStd 	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkMagnitudeFrequencyMean  	Average value of "standard gravity" units, 	class="num"
+- BodyAccelerometerJerkMagnitudeFrequencyStd	Average value of "standard gravity" units, 	class="num"
+- BodyGyroscopeMagnitudeFrequencyMean  		Average value of "radians per second", 		class="num"
+- BodyGyroscopeMagnitudeFrequencyStd   		Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkMagnitudeFrequencyMean	Average value of "radians per second", 		class="num"
+- BodyGyroscopeJerkMagnitudeFrequencyStd	Average value of "radians per second", 		class="num"
 
- - The summarized data set is written out to a diskfile named "tidy_data.txt".
