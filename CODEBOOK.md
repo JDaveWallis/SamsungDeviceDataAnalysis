@@ -5,7 +5,7 @@ DATE: "19 November 2015"
 
 ---
 
-## Project Description
+# Project Description
 This data collection project is designed to collect, clean and consolidate selected experimental device performance data for
 the Samsung Galaxy S Smartphone.  The raw data is provided from a "Human Activity Recognition" study performed at
 the Smartlab Non Linear Complex Systems Laboratory in Genoa, Italy.
@@ -25,8 +25,7 @@ The experiments were carried out with a group of 30 volunteers within an age bra
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. 
 
-For each record the following data is provided:
-======================================
+###For each record the following data is provided:
 
 * Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
      (Accelerometer data is presented in "standard gravity" units.
@@ -69,7 +68,7 @@ As an example:  The raw variable name "tBodyAccJerk-mean()-Z" translates to the 
 ###Cleaning of the data
 Click here to see the [README.md](https://github.com/JDaveWallis/SamsungDeviceDataAnalysis/blob/master/README.md) file which describes the "run_analysis.R" data consolidation/cleansing script in greater detail.
 
-##Description of the variables in the tidy_data.txt file
+###Description of the variables in the tidy_data.txt file
 General description of the file including:
 The tidy_data.txt includes 180 rows (summary observations for 30 subjects, with 6 activities for each subject) and 69 columns (3 identifiers and 66 variables).  
  
