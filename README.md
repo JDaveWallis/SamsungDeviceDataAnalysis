@@ -2,7 +2,7 @@
 This repository provides a codebook, R script and resultant tidy data set of selected device performance data for the Samsung Galaxy S Smartphone.  Developed as course project for Johns Hopkins "Getting and Cleaning Data" course, through Coursera. (Dave Wallis - 19 November 2015)
 
 
-The "run_analysis.R" script contains significant in-line comments describing the activities being performed by the script.  The text below summarizes those basic steps:
+The [run_analysis.R](https://github.com/JDaveWallis/SamsungDeviceDataAnalysis/blob/master/run_analysis.R) script contains significant in-line comments describing the activities being performed by the script.  The text below summarizes those basic steps:
 
 * Reads in the master data for Activties and Variables to get those object types/descriptions.
 * Reads in the raw Observation data files associated to Subjects, Activities and Variables for both the training and test populations.
@@ -15,20 +15,26 @@ The "run_analysis.R" script contains significant in-line comments describing the
 * Note that the consolidated detailed observation data set includes 12,099 observation records, and 69 columns (3 identifiers and 66 variables).
 * The tidy data set is then created by aggregating the detailed observation data set across subject and activity, with the aggregate "mean" function being applied to each of the 66 observation variable columns.
 * The resultant tidy date set contains 180 records - 6 activity records for each of the 30 subjects in the study.  The number of columns is 69 (3 identifiers and 66 variables) - that is not changed by the aggregation of data across records.
-* The tidy_data.txt file is then written to disk. 
+* The [tidy_data.txt] (https://github.com/JDaveWallis/SamsungDeviceDataAnalysis/blob/master/tidy_data.txt) file is then written to disk. 
 
 
 # Execution of the "run_analysis.R" script
 
-Print statements are generated throughout the process to indicate status, and cleanup of data sets no longer needed occurs throughout the "run_analaysis.R" script.  The following process status messages are from a sucessful execution of the script.
+Print statements are generated throughout the process to indicate status, and cleanup of data sets no longer needed occurs throughout the "run_analysis.R" script.  The following process status messages are from a successful execution of the script.
 
 source("run_analysis.R")
 
 "2015-11-21 10:24:10 Beginning process"
+
 "2015-11-21 10:24:10 Reading raw files - Training population data"
+
 "2015-11-21 10:24:32 Reading raw files - Test population data"
+
 "2015-11-21 10:24:37 Creating consolidated vectors of raw Training and Test population data"
+
 "2015-11-21 10:24:38 Creating detailed subset observation dataset"
+
 "2015-11-21 10:24:38 Creating summarized observation dataset"
+
 There were 50 or more warnings (use warnings() to see the first 50)
 
